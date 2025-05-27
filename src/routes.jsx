@@ -1,5 +1,5 @@
 import App from "./App.jsx";
-import Shop from "./Shop.jsx";
+import Shop from "./components/Shop.jsx";
 
 const routes = [
     {
