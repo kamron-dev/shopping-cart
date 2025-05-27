@@ -8,6 +8,9 @@ function App() {
     <>
       <header>
         <h3>Name of the site</h3>
+        <input type="search" name="search-bar" id="search-bar" placeholder='Enter name...' />
+        <button>Search</button>
+        <button>Cart placeholder</button>
       </header>
       <main>
         <h1>Hello, World!</h1>
