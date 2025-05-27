@@ -16,13 +16,15 @@ function App() {
         <button>
           <Link to="shop">Shop</Link>
         </button>
-        <button>Cart placeholder</button>
+        <button>Cart</button>
       </header>
       <main>
         <Outlet />
       </main>
       <footer>
-
+        <div>
+          <h3>some footer info</h3>
+        </div>
       </footer>
     </>
   )
