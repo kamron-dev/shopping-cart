@@ -13,7 +13,11 @@ function App() {
         <button>Cart placeholder</button>
       </header>
       <main>
-        <h1>Hello, World!</h1>
+        <div id="banner">
+          <h1>Hello, World!</h1>
+
+        </div>
+        <div id="top-picks"></div>
       </main>
       <footer>
 
