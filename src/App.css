@@ -40,6 +40,18 @@ div #shop-container {
 div #shop-cards-container {
   grid-column: 2;
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+
+div #game-card {
+  padding: 15px;
+  border: 2px solid green;
+}
+
+div #game-card>img {
+  width: 30%;
+  height: auto;
   
 }
 
