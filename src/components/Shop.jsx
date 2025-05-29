@@ -1,14 +1,6 @@
-// import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
+import GameCard from "./GameCard";
 
-const ShopItem = ({data}) => {
-    return (
-        <div>
-            <h3>{data.title}</h3>
-            <p>{data.description}</p>
-        </div>
-    );
-}
 
 const Shop = () => {
     const [data, setData] = useState(null);
@@ -23,9 +15,6 @@ const Shop = () => {
             .finally(() => setLoading(false));
   }, []);
     
-//     if (!Array.isArray(data)) {
-//     return <p>Loading shop...</p>; // or skeleton, spinner, etc.
-    //   }
     if (loading) return <h2>Loading...</h2>
     if (error) return <h2>A network error occured...</h2>
     
@@ -34,7 +23,7 @@ const Shop = () => {
             <h1>Hello, Shop!</h1>
             {
                 <div>
-                    {data.map(item => <ShopItem data={item} key={item.id} />)}
+                    {data.map(item => <GameCard data={item} key={item.id} />)}
                
                 
                 
