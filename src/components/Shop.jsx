@@ -19,10 +19,10 @@ const Shop = () => {
     if (error) return <h2>A network error occured...</h2>
     
     return (
-        <div>
-            <h1>Hello, Shop!</h1>
+        <div id="shop-container">
+            {/* <h1>Hello, Shop!</h1> */}
             {
-                <div>
+                <div id="shop-cards-container">
                     {data.map(item => <GameCard data={item} key={item.id} />)}
                
                 

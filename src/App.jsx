@@ -6,16 +6,7 @@ import './App.css'
 // import { useEffect } from "react";
 
 function App() {
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products", { mode: "cors" })
-  //     .then((response) => response.json())
-  //     .then((response) => setData(response))
-  //     .catch((error) => console.error(error));
-  // }, []);
-
-  // console.table(data);
+  
   return (
     <>
       <header>
