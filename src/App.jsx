@@ -2,7 +2,8 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import { Link, Outlet } from "react-router-dom";
-import './App.css'
+import './App.css';
+import Footer from "./components/Footer";
 // import { useEffect } from "react";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <>
       <header>
         <Link to="/">
-          <h3>StockY</h3>
+          <h2>StockY</h2>
         </Link>
         <input type="search" name="search-bar" id="search-bar" placeholder='Enter name...' />
         <button>Search</button>
@@ -24,9 +25,7 @@ function App() {
         <Outlet/>
       </main>
       <footer>
-        <div>
-          <h3>some footer info</h3>
-        </div>
+        <Footer />
       </footer>
     </>
   )

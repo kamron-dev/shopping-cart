@@ -4,7 +4,7 @@ const MainPage = () => {
     return (
         <>
             <div id="banner">
-                <h1>Hello, World! This is main page!</h1>
+                <h1>Welcome to the StockY shop!</h1>
             </div>
             <div id="top-picks">
 
