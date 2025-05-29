@@ -1,19 +1,19 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import { Link, Outlet } from "react-router-dom";
 import './App.css'
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 function App() {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products", { mode: "cors" })
-      .then((response) => response.json())
-      .then((response) => setData(response))
-      .catch((error) => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products", { mode: "cors" })
+  //     .then((response) => response.json())
+  //     .then((response) => setData(response))
+  //     .catch((error) => console.error(error));
+  // }, []);
 
   // console.table(data);
   return (
@@ -30,7 +30,7 @@ function App() {
         <button>Cart</button>
       </header>
       <main>
-        <Outlet context={data} />
+        <Outlet/>
       </main>
       <footer>
         <div>
