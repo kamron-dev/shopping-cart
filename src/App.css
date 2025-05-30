@@ -50,12 +50,21 @@ div #game-card {
   padding: 15px;
   border: 2px solid green;
   margin: 25px;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 div #game-card>img {
   width: 30%;
   height: auto;
   
+}
+
+div#item-extended>img {
+  width: 200px;
+  height: auto;
 }
 
 footer {
