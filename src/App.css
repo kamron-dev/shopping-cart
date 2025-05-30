@@ -62,6 +62,10 @@ div #game-card>img {
   
 }
 
+div#item-extended {
+  padding: 30px;
+}
+
 div#item-extended>img {
   width: 200px;
   height: auto;
