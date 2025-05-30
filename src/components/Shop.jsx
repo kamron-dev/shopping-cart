@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import GameCard from "./GameCard";
 
 
-
 const Shop = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);

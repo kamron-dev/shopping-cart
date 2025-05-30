@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const GameCardExtended = () => {
     const [item, setItem] = useState(null);
     const { id } = useParams();
+    const { handleAddToCart } = useOutletContext();
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
@@ -17,9 +18,12 @@ const GameCardExtended = () => {
             <img src={item.image}></img>
             <h2>{item.title}</h2>
             <h3>{item.description}</h3>
-            <button>Buy</button>
+            <button onClick={() => {
+                handleAddToCart(item);
+                
+            }}>Buy</button>
         </div>
-    )
+    );
 };
 
 export default GameCardExtended;
