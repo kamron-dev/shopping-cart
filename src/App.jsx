@@ -28,7 +28,7 @@ function App() {
         <button>Cart</button>
       </header>
       <main>
-        <Outlet context={{handleAddToCart}}/>
+        <Outlet context={{handleAddToCart, cart}}/>
       </main>
       <footer>
         <Footer />
