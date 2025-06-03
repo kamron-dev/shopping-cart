@@ -79,6 +79,8 @@ div#item-extended>img {
 
 th, td {
   padding: 10px;
+  border-top: 1px solid black;
+  
 }
 
 
