@@ -14,46 +14,49 @@ const Cart = () => {
 
     
     return (
-        <table id="cart-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                
-                </tr>
-            </thead>
-            <tbody>
-                {groupedCart.map((item) => {
-                    return (
-                        <tr key={item.id}>
-                            <td>
-                                {item.title}
-                            </td>
-                            <td>
-                                {item.category}
-                            </td>
-                            <td>
-                                ${item.price}
-                            </td>
-                            <td>
-                                {item.quantity}
-                            </td>
-                            
-                        </tr>
-                )
-            })}
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>Total price:</td>
-                    <td></td>
-                    <td></td>
-                    <td>${(cart.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}</td>
-                </tr>
-            </tfoot>
-        </table>
+        <>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
+                    {groupedCart.map((item) => {
+                        return (
+                            <tr key={item.id}>
+                                <td>
+                                    {item.title}
+                                </td>
+                                <td>
+                                    {item.category}
+                                </td>
+                                <td>
+                                    ${item.price}
+                                </td>
+                                <td>
+                                    {item.quantity}
+                                </td>
+                                
+                            </tr>
+                    )
+                })}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total price:</td>
+                        <td></td>
+                        <td></td>
+                        <td>${(cart.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button>Checkout</button>
+        </>
     )
      
 };
