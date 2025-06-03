@@ -4,7 +4,14 @@ import { useOutletContext } from "react-router-dom";
 const Cart = () => {
     const { cart } = useOutletContext();
     if (!cart.length) return <h2>Your cart is empty...</h2>
-    
+
+    const groupedCart = cart.reduce((acc, item) => {
+        const existing = acc.find(newItem => newItem.id === item.id);
+        existing ? existing.quantity += 1 : acc.push({ ...item, quantity: 1 });
+        return acc;
+    }, []);
+
+
     
     return (
         <table id="cart-table">
@@ -13,11 +20,12 @@ const Cart = () => {
                     <th>Name</th>
                     <th>Category</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 
                 </tr>
             </thead>
             <tbody>
-                {cart.map((item) => {
+                {groupedCart.map((item) => {
                     return (
                         <tr key={item.id}>
                             <td>
@@ -29,6 +37,9 @@ const Cart = () => {
                             <td>
                                 ${item.price}
                             </td>
+                            <td>
+                                {item.quantity}
+                            </td>
                             
                         </tr>
                 )
@@ -37,6 +48,7 @@ const Cart = () => {
             <tfoot>
                 <tr>
                     <td>Total price:</td>
+                    <td></td>
                     <td></td>
                     <td>${(cart.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}</td>
                 </tr>
