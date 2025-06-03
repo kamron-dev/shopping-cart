@@ -11,8 +11,9 @@ const Cart = () => {
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th>Category</th>
                     <th>Price</th>
-                    <th>Total</th>
+                
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,9 @@ const Cart = () => {
                         <tr key={item.id}>
                             <td>
                                 {item.title}
+                            </td>
+                            <td>
+                                {item.category}
                             </td>
                             <td>
                                 ${item.price}

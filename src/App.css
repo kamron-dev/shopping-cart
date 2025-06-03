@@ -72,12 +72,16 @@ div#item-extended>img {
 }
 
 #cart-table {
-  border: 1px solid black;
+  table-layout: fixed;
+  
+  width: 100%;
 }
 
-#cart-table>tr {
-  border: 1px solid red;
+th, td {
+  padding: 10px;
 }
+
+
 
 footer {
   border: 2px solid blue;
