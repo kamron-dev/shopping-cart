@@ -18,10 +18,7 @@ const GameCardExtended = () => {
             <img src={item.image}></img>
             <h2>{item.title}</h2>
             <h3>{item.description}</h3>
-            <button onClick={() => {
-                handleAddToCart(item);
-                
-            }}>Buy</button>
+            <button onClick={() => handleAddToCart(item)}>Buy</button>
         </div>
     );
 };
