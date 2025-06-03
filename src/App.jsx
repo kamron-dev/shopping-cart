@@ -11,6 +11,11 @@ function App() {
     setCart(oldItems => [...oldItems, item]);
     console.log(cart);
   };
+
+  const handleCheckOut = () => {
+    alert("Thank you for buying!");
+    setCart([]);
+  };
   
   return (
     <>
@@ -28,7 +33,7 @@ function App() {
         </button>
       </header>
       <main>
-        <Outlet context={{handleAddToCart, cart}}/>
+        <Outlet context={{handleAddToCart, cart, handleCheckOut}}/>
       </main>
       <footer>
         <Footer />

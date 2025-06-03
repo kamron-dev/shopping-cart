@@ -2,7 +2,8 @@ import { useOutletContext } from "react-router-dom";
 
 
 const Cart = () => {
-    const { cart } = useOutletContext();
+    const { cart, handleCheckOut } = useOutletContext();
+    
     if (!cart.length) return <h2>Your cart is empty...</h2>
 
     const groupedCart = cart.reduce((acc, item) => {
@@ -55,7 +56,7 @@ const Cart = () => {
                     </tr>
                 </tfoot>
             </table>
-            <button>Checkout</button>
+            <button onClick={handleCheckOut}>Checkout</button>
         </>
     )
      
