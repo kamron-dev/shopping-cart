@@ -7,27 +7,36 @@ const Cart = () => {
     
     
     return (
-        <table>
+        <table id="cart-table">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
+                    <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 {cart.map((item) => {
                     return (
-                        <tr>
+                        <tr key={item.id}>
                             <td>
                                 {item.title}
                             </td>
                             <td>
                                 ${item.price}
                             </td>
-                    </tr>
+                            
+                        </tr>
                 )
             })}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total price:</td>
+                    <td></td>
+                    <td>${cart.reduce((acc, item) => acc + item.price, 0)}</td>
+                </tr>
+            </tfoot>
         </table>
     )
      

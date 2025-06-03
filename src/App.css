@@ -71,7 +71,7 @@ div#item-extended>img {
   height: auto;
 }
 
-#cart-table>* {
+#cart-table {
   border: 1px solid black;
 }
 
