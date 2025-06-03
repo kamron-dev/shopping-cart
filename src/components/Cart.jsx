@@ -34,7 +34,7 @@ const Cart = () => {
                 <tr>
                     <td>Total price:</td>
                     <td></td>
-                    <td>${cart.reduce((acc, item) => acc + item.price, 0)}</td>
+                    <td>${(cart.reduce((acc, item) => acc + item.price, 0)).toFixed(2)}</td>
                 </tr>
             </tfoot>
         </table>

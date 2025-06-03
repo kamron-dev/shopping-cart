@@ -75,6 +75,10 @@ div#item-extended>img {
   border: 1px solid black;
 }
 
+#cart-table>tr {
+  border: 1px solid red;
+}
+
 footer {
   border: 2px solid blue;
   width: 100%;
