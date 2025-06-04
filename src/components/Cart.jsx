@@ -5,6 +5,7 @@ const Cart = () => {
     const { cart, handleCheckOut } = useOutletContext();
     
     if (!cart.length) return <h2>Your cart is empty...</h2>
+    
 
     const groupedCart = cart.reduce((acc, item) => {
         const existing = acc.find(newItem => newItem.id === item.id);

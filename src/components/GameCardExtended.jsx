@@ -3,8 +3,14 @@ import { useState, useEffect } from "react";
 
 const GameCardExtended = () => {
     const [item, setItem] = useState(null);
+    const [quantity, setQuantity] = useState(0);
     const { id } = useParams();
     const { handleAddToCart } = useOutletContext();
+
+    const handleChangeQuantity = (e) => {
+        setQuantity(Number(e.target.value));
+        console.log(quantity)
+    }
    
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
@@ -18,9 +24,17 @@ const GameCardExtended = () => {
             <img src={item.image}></img>
             <h2>{item.title}</h2>
             <h3>{item.description}</h3>
-            {/* <label htmlFor="qty-input">Quantity: </label>
-            <input type="number"  name="qty-input" id="qty-input" min="1" /> */}
-            <button onClick={() => handleAddToCart(item)}>Buy</button>
+            <label htmlFor="qty-input">Quantity: </label>
+            <input type="number" value={quantity} onChange={handleChangeQuantity}  name="qty-input" id="qty-input" min="1" />
+            <button onClick={() => {
+                if (quantity) {
+                    for (let i = 0; i < quantity; i++) {
+                        handleAddToCart(item);
+                    };
+                } else {
+                    handleAddToCart(item);
+                }
+            }}>Buy</button>
         </div>
     );
 };
