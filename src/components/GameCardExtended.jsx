@@ -5,7 +5,7 @@ const GameCardExtended = () => {
     const [item, setItem] = useState(null);
     const { id } = useParams();
     const { handleAddToCart } = useOutletContext();
-
+   
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
             .then((res) => res.json())
@@ -18,6 +18,8 @@ const GameCardExtended = () => {
             <img src={item.image}></img>
             <h2>{item.title}</h2>
             <h3>{item.description}</h3>
+            {/* <label htmlFor="qty-input">Quantity: </label>
+            <input type="number"  name="qty-input" id="qty-input" min="1" /> */}
             <button onClick={() => handleAddToCart(item)}>Buy</button>
         </div>
     );
