@@ -26,7 +26,7 @@ function App() {
         <input type="search" name="search-bar" id="search-bar" placeholder='Enter name...' />
         <button>Search</button>
         <Link to="shop"><button>Shop</button></Link>
-        <Link to="cart"><button>Cart</button></Link>
+        <Link to="cart"><button id="cart-button">Cart <div id="cart-badge">{ cart.length }</div></button></Link>
       </header>
       <main>
         <Outlet context={{handleAddToCart, cart, handleCheckOut}}/>
