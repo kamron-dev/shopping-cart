@@ -35,7 +35,7 @@ const GameCardExtended = () => {
                     // handleAddToCart(item);
                     return; 
                 }
-            }}>Buy</button>
+            }}>Add to Cart</button>
         </div>
     );
 };
