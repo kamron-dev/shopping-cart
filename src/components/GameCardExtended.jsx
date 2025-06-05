@@ -9,8 +9,7 @@ const GameCardExtended = () => {
 
     const handleChangeQuantity = (e) => {
         setQuantity(Number(e.target.value));
-        console.log(quantity)
-    }
+    };
    
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
@@ -24,10 +23,11 @@ const GameCardExtended = () => {
             <img src={item.image}></img>
             <h2>{item.title}</h2>
             <h3>{item.description}</h3>
+            <h3>Price: ${ item.price }</h3>
             <label htmlFor="qty-input">Quantity: </label>
-            <input type="number" value={quantity} onChange={handleChangeQuantity}  name="qty-input" id="qty-input" min="1" />
+            <input type="number" value={quantity} onChange={handleChangeQuantity}  name="qty-input" id="qty-input" min="0" />
             <button onClick={() => {
-                if (quantity) {
+                if (quantity > 0) {
                     for (let i = 0; i < quantity; i++) {
                         handleAddToCart(item);
                     };
