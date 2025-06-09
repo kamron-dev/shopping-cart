@@ -30,12 +30,17 @@ header > * {
 
 #cart-button {
   position: relative;
+  padding: 0;
+}
+#cart-icon {
+  width: 4rem;
+  height: 2rem;
 }
 
 #cart-badge {
   position: absolute;
-  bottom: 20px;
-  left: 53px;
+  bottom: 23px;
+  left: 45px;
   background-color: red;
   color: white;
   min-width: 24px;

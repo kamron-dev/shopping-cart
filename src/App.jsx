@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link, Outlet } from "react-router-dom";
 import './App.css';
 import Footer from "./components/Footer";
+import SearchBar from './components/SearchBar';
+import cartIcon from "./assets/cart-large-2-svgrepo-com.svg";
 // import { useEffect } from "react";
 
 function App() {
@@ -23,10 +25,9 @@ function App() {
         <Link to="/">
           <h2>StockY</h2>
         </Link>
-        <input type="search" name="search-bar" id="search-bar" placeholder='Enter name...' />
-        <button>Search</button>
+        <SearchBar />
         <Link to="shop"><button>Shop</button></Link>
-        <Link to="cart"><button id="cart-button">Cart { cart.length ? <div id="cart-badge">{ cart.length }</div> : null }</button></Link>
+        <Link to="cart"><button id="cart-button"><img src={cartIcon} id ="cart-icon" alt="cart-icon" /> { cart.length ? <div id="cart-badge">{ cart.length }</div> : null }</button></Link>
       </header>
       <main>
         <Outlet context={{handleAddToCart, cart, handleCheckOut}}/>
