@@ -1,19 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 
 const SearchBar = () => {
-    const [searchWord, setSearchWord] = useState("");
-    const handleChangeSearchWord = (event) => {
-        setSearchWord(event.target.value);
-        
-    }
+    const [searchParams, setSearchParams] = useState();
+    let navigate = useNavigate();
 
     return (
         <>
-            <input type="search" name="search-bar" id="search-bar" value={searchWord} onChange={handleChangeSearchWord} placeholder='Enter name...' />
-            <button>Search</button>
+            <input type="search" name="search-bar" id="search-bar" value={searchParams} onChange={(e) => setSearchParams(e.target.value)} placeholder='Enter name...' />
+            <button onClick={() => {
+                // e.preventDefault();
+                if (!searchParams.trim()) return;
+                navigate(`/shop?q=${encodeURIComponent(searchParams)}`);
+            }}>Search</button>
         </>
-    )
+    );
 };
 
 export default SearchBar;

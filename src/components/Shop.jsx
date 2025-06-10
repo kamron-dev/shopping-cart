@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import GameCard from "./GameCard";
-
+import { useSearchParams } from "react-router-dom"; 
 
 const Shop = () => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    
+    const [searchParameter, setSearchParameter] = useSearchParams();
+    const query = searchParameter.get("q") || "";
+
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products", { mode: "cors" })
@@ -15,7 +17,16 @@ const Shop = () => {
             .then((response) => setData(response))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
-  }, []);
+    }, []);
+    
+    if (query) {
+        const filtered = data.filter(item => {
+            item.title.toLowerCase().includes(query.toLowerCase())
+        });
+        setData(filtered);
+        // alert(JSON.stringify(filtered));
+        console.log(data);
+    };
     
     
     if (loading) return <h2>Loading...</h2>
