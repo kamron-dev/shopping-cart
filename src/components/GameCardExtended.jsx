@@ -25,7 +25,7 @@ const GameCardExtended = () => {
             <h3>{item.description}</h3>
             <h3>Price: ${ item.price }</h3>
             <label htmlFor="qty-input">Quantity: </label>
-            <input type="tel" value={quantity} onChange={handleChangeQuantity}  name="qty-input" id="qty-input" min="1"/>
+            <input type="number" value={quantity} onChange={handleChangeQuantity}  name="qty-input" id="qty-input" min="1"/>
             <button onClick={() => {
                 if (quantity > 0) {
                     for (let i = 0; i < quantity; i++) {
