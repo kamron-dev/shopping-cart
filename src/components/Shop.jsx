@@ -3,7 +3,7 @@ import GameCard from "./GameCard";
 import { useSearchParams } from "react-router-dom"; 
 
 const Shop = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
