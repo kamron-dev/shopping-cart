@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import GameCard from "./GameCard";
 import { useSearchParams } from "react-router-dom"; 
 
-const FilterBy = ({ data, handleChange }) => {
+const FilterBy = ({ data, handleChange, handleRadioChange }) => {
     return (
         <div>
             <label htmlFor="category-filter">Filter by Category</label>
@@ -12,6 +12,16 @@ const FilterBy = ({ data, handleChange }) => {
                     [...new Set(data.map(item => item.category))].map(item => <option value={item} key={item}>{item}</option>)
                 }
             </select>
+            <br />
+            <fieldset onChange={handleRadioChange}>
+                <legend>Sort by price: </legend>
+                <label>Low first</label>
+                <input type="radio" name="price-filter" value="low" id="low-first-radio" defaultChecked />
+                <label>High first</label>
+                <input type="radio" name="price-filter" value="high" id="high-first-radio" />
+            </fieldset>
+            
+
         </div>
     )
 };
@@ -19,6 +29,7 @@ const FilterBy = ({ data, handleChange }) => {
 const Shop = () => {
     const [data, setData] = useState([]);
     const [category, setCategory] = useState("");
+    const [byPrice, setByPrice] = useState("low");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -37,7 +48,14 @@ const Shop = () => {
         const matchesCategory = category ? item.category === category : true;
         const matchesQuery = query ? item.title.toLowerCase().includes(query) : true;
         return matchesCategory && matchesQuery;
-    })
+    });
+
+    if (byPrice === "low") {
+        filteredData.sort((a, b) => a.price - b.price);
+    } else {
+        filteredData.sort((a, b) => b.price - a.price)
+    }
+
     
     
     
@@ -48,7 +66,7 @@ const Shop = () => {
     
     return (
         <div id="shop-container">
-            <FilterBy data={data} handleChange={(e) => setCategory(e.target.value)}/>
+            <FilterBy data={data} handleChange={(e) => setCategory(e.target.value)} handleRadioChange={(e) => setByPrice(e.target.value)}/>
             {
                 <div id="shop-cards-container">
                     
