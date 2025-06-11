@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import GameCard from "./GameCard";
 import { useSearchParams } from "react-router-dom"; 
 
-const FilterBy = ({data, handleChange}) => {
+const FilterBy = ({ data, handleChange }) => {
     return (
         <div>
             <label htmlFor="category-filter">Filter by Category</label>
             <select name="category-filter" id="category-filter" onChange={handleChange}>
                 <option value="">All</option>
                 {
-                    [...new Set(data.map(item => item.category))].map(item => <option value={item} key={item}>{item }</option>)
+                    [...new Set(data.map(item => item.category))].map(item => <option value={item} key={item}>{item}</option>)
                 }
             </select>
         </div>
     )
-}
+};
 
 const Shop = () => {
     const [data, setData] = useState([]);
@@ -51,7 +51,7 @@ const Shop = () => {
             <FilterBy data={data} handleChange={(e) => setCategory(e.target.value)}/>
             {
                 <div id="shop-cards-container">
-                    {/* {filteredData.map(item => <GameCard data={item} key={item.id} />)} */}
+                    
                     {filteredData.length === 0 ? (
                         <h2>No items matching your filter</h2>
                     ) : (
