@@ -7,6 +7,7 @@ const FilterBy = ({data, handleChange}) => {
         <div>
             <label htmlFor="category-filter">Filter by Category</label>
             <select name="category-filter" id="category-filter" onChange={handleChange}>
+                <option value="">All</option>
                 {
                     [...new Set(data.map(item => item.category))].map(item => <option value={item} key={item}>{item }</option>)
                 }
@@ -17,7 +18,7 @@ const FilterBy = ({data, handleChange}) => {
 
 const Shop = () => {
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]);
+    const [category, setCategory] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -27,31 +28,16 @@ const Shop = () => {
     useEffect(() => {
         fetch("https://fakestoreapi.com/products", { mode: "cors" })
             .then((response) => response.json())
-            .then((response) => {
-                setData(response);
-                setFilteredData(response);
-            })
+            .then((response) => setData(response))
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
     }, []);
 
-    const handleCategoryChange = (e) => {
-        const filter = e.target.value;
-        if (!filter) {
-            setFilteredData(data)
-        } else {
-            const filteredData = data.filter(item => item.category === filter);
-            setFilteredData(filteredData);
-
-        };
-
-    }
-
-
-    const searchFilteredData = query
-        ? filteredData.filter(item =>
-            item.title.toLowerCase().includes(query)
-        ) : filteredData;
+    const filteredData = data.filter(item => {
+        const matchesCategory = category ? item.category === category : true;
+        const matchesQuery = query ? item.title.toLowerCase().includes(query) : true;
+        return matchesCategory && matchesQuery;
+    })
     
     
     
@@ -62,14 +48,14 @@ const Shop = () => {
     
     return (
         <div id="shop-container">
-            <FilterBy data={data} handleChange={handleCategoryChange}/>
+            <FilterBy data={data} handleChange={(e) => setCategory(e.target.value)}/>
             {
                 <div id="shop-cards-container">
-                    {searchFilteredData.map(item => <GameCard data={item} key={item.id} />)}
-                    {searchFilteredData.length === 0 ? (
+                    {/* {filteredData.map(item => <GameCard data={item} key={item.id} />)} */}
+                    {filteredData.length === 0 ? (
                         <h2>No items matching your filter</h2>
                     ) : (
-                            searchFilteredData.map(item => (
+                            filteredData.map(item => (
                                 <GameCard data={item} key={item.id} />
                             ))
                     )}
