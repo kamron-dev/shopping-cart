@@ -7,7 +7,7 @@ const Shop = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const [searchParameter, setSearchParameter] = useSearchParams();
+    const [searchParameter] = useSearchParams();
     const query = searchParameter.get("q") || "";
 
 
@@ -18,15 +18,11 @@ const Shop = () => {
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
     }, []);
-    
-    if (query) {
-        const filtered = data.filter(item => {
-            item.title.toLowerCase().includes(query.toLowerCase())
-        });
-        setData(filtered);
-        // alert(JSON.stringify(filtered));
-        console.log(data);
-    };
+
+    const filteredData = query
+        ? data.filter(item =>
+            item.title.toLowerCase().includes(query)
+        ) : data;
     
     
     if (loading) return <h2>Loading...</h2>
@@ -38,7 +34,7 @@ const Shop = () => {
             {/* <h1>Hello, Shop!</h1> */}
             {
                 <div id="shop-cards-container">
-                    {data.map(item => <GameCard data={item} key={item.id} />)}
+                    {filteredData.map(item => <GameCard data={item} key={item.id} />)}
                
                 
                 

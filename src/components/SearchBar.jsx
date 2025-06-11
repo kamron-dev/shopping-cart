@@ -10,7 +10,6 @@ const SearchBar = () => {
         <>
             <input type="search" name="search-bar" id="search-bar" value={searchParams} onChange={(e) => setSearchParams(e.target.value)} placeholder='Enter name...' />
             <button onClick={() => {
-                // e.preventDefault();
                 if (!searchParams.trim()) return;
                 navigate(`/shop?q=${encodeURIComponent(searchParams)}`);
             }}>Search</button>
