@@ -58,6 +58,17 @@ main {
   height: 100%;
   padding: 15px;
 }
+
+#shop-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 15px;
+}
+#shop-filters>fieldset {
+  display: flex;
+  flex-direction: column;
+}
 div #shop-container {
   display: grid;
   grid-template-columns: 1fr 4fr;

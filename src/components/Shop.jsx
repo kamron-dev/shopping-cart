@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 
 const FilterBy = ({ data, handleChange, handleRadioChange }) => {
     return (
-        <div>
+        <div id="shop-filters">
             <label htmlFor="category-filter">Filter by Category</label>
             <select name="category-filter" id="category-filter" onChange={handleChange}>
                 <option value="">All</option>
@@ -23,7 +23,7 @@ const FilterBy = ({ data, handleChange, handleRadioChange }) => {
             
 
         </div>
-    )
+    );
 };
 
 const Shop = () => {
