@@ -26,15 +26,10 @@ const FilterBy = ({ data, handleChange, handleRadioChange }) => {
     );
 };
 
-const Shop = () => {
+const useShopData = () => {
     const [data, setData] = useState([]);
-    const [category, setCategory] = useState("");
-    const [byPrice, setByPrice] = useState("low");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
-    const [searchParameter] = useSearchParams();
-    const query = searchParameter.get("q") || "";
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products", { mode: "cors" })
@@ -43,6 +38,22 @@ const Shop = () => {
             .catch((error) => setError(error))
             .finally(() => setLoading(false));
     }, []);
+
+    return { data, loading, error };
+};
+
+
+const Shop = () => {
+
+    const { data, loading, error } = useShopData();
+    const [category, setCategory] = useState("");
+    const [byPrice, setByPrice] = useState("low");
+    
+
+    const [searchParameter] = useSearchParams();
+    const query = searchParameter.get("q") || "";
+
+    
 
     const filteredData = data.filter(item => {
         const matchesCategory = category ? item.category === category : true;
