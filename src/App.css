@@ -1,23 +1,26 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  /* padding: 2rem; */
   text-align: center;
   
   display: grid;
   grid-template-rows: 120px 2fr 0.5fr;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
 }
 
 header {
-  border: 2px solid red;
+  border: 1px solid grey;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  position: sticky;
+  top: 0;
+  background-color: white;
   
 }
 header > * {
