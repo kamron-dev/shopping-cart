@@ -7,6 +7,7 @@
   grid-template-rows: 120px auto auto;
   width: 100%;
   min-height: 100vh;
+  
 
 }
 
@@ -29,6 +30,7 @@ header > * {
 
 #search-bar {
   width: 60%;
+  height: 25px;
 }
 
 #cart-button {
@@ -56,7 +58,7 @@ header > * {
 }
 
 main {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   width: 100%;
   height: 100%;
   padding: 15px;
@@ -86,7 +88,7 @@ div #shop-cards-container {
 
 div #game-card {
   padding: 15px;
-  border: 2px solid green;
+  /* border: 2px solid grey; */
   margin: 25px;
   display: grid;
   grid-template-rows: 2fr 1fr;
@@ -124,7 +126,7 @@ th, td {
 
 
 footer {
-  border: 2px solid blue;
+  border-top: 1px solid grey;
   width: 100%;
   height: 100%;
   align-content: center;

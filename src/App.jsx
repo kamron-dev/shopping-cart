@@ -4,7 +4,7 @@ import './App.css';
 import Footer from "./components/Footer";
 import SearchBar from './components/SearchBar';
 import cartIcon from "./assets/cart-large-2-svgrepo-com.svg";
-// import { useEffect } from "react";
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,7 +23,7 @@ function App() {
     <>
       <header>
         <Link to="/">
-          <h2>StockY</h2>
+          <h1>StockY</h1>
         </Link>
         <SearchBar />
         <Link to="shop"><button>Shop</button></Link>
