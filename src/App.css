@@ -4,7 +4,7 @@
   text-align: center;
   
   display: grid;
-  grid-template-rows: 120px 2fr 0.5fr;
+  grid-template-rows: 120px auto auto;
   width: 100%;
   min-height: 100vh;
 
